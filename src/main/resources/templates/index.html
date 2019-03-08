@@ -15,7 +15,7 @@
     </tr>
     <tr th:each="cat : ${categories}">
         <td th:text="${cat.id}"></td>
-        <td><a th:href="@{/category/getPostsByCategory(id=${cat.id})}" th:text="${cat.name}"></a></td>
+        <td><a th:href="@{/post/getPostsByCategory(ids=${cat.id})}" th:text="${cat.name}"></a></td>
         <td><a th:href="@{/category/delete(id=${cat.id})}">Delete</a></td>
     </tr>
 

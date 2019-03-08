@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>shortText</th>
+        <th>text</th>
+        <th>Image</th>
 
+    </tr>
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.id}"></td>
+        <td th:text="${post.title}"></td>
+        <td th:text="${post.shortText}"></td>
+        <td th:text="${post.text}"></td>
+        <td><img width="50" th:if="${post.picUrl != null}" th:src="@{/post/getImage(picUrl=${post.picUrl})}"></td>
+
+    </tr>
+
+</table>
 </body>
 </html>

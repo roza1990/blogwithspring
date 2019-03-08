@@ -1,7 +1,9 @@
 package com.example.blogwithspring.controller;
 
 import com.example.blogwithspring.model.Category;
+import com.example.blogwithspring.model.Post;
 import com.example.blogwithspring.repository.CategoryRepositroy;
+import com.example.blogwithspring.repository.PostRepositroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,6 +16,8 @@ import java.util.Optional;
 public class CategoryController {
     @Autowired
     private CategoryRepositroy categoryRepositroy;
+
+
     @GetMapping("/delete")
     public String deleteById(@RequestParam("id") int id){
         Optional<Category> cat=categoryRepositroy.findById(id);
@@ -35,10 +39,5 @@ public class CategoryController {
         return "redirect:/";
     }
 
-    @GetMapping("/getPostsByCategory")
-    public String getPostsByCategory(ModelMap map, @RequestParam("id") int id){
 
-        return "postsByCategory";
-
-    }
 }

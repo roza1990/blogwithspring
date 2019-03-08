@@ -68,4 +68,10 @@ public class PostController {
         IOUtils.copy(in, response.getOutputStream());
     }
 
+    @GetMapping("/getPostsByCategory")
+    public String getPostsByCategory(ModelMap map, @RequestParam("ids") int ids){
+        map.addAttribute("posts", postRepositroy.getPostsByCategoryId(ids));
+        return "postsByCategory";
+    }
+
 }
