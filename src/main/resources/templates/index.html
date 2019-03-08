@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/category/add">Add Category</a> | <a href="/post/add">Add Posts</a>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Delete</th>
+
+    </tr>
+    <tr th:each="cat : ${categories}">
+        <td th:text="${cat.id}"></td>
+        <td><a th:href="@{/category/getPostsByCategory(id=${cat.id})}" th:text="${cat.name}"></a></td>
+        <td><a th:href="@{/category/delete(id=${cat.id})}">Delete</a></td>
+    </tr>
+
+</table>
+<hr>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Delete</th>
+
+
+    </tr>
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.id}"></td>
+        <td><a th:href="@{/post/singlePage(id=${post.id})}" th:text="${post.title}"></a></td>
+        <td ><a th:href="@{/post/delete(id=${post.id})}">Delete</a></td>
+
+
+ </tr>
+
+</table>
+</body>
+</html>
