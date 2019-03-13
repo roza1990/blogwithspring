@@ -9,17 +9,17 @@
 <form action="/post/add" method="post" enctype="multipart/form-data">
     <input type="text" name="title" placeholder="title"> <br>
     <input type="text" name="shortText" placeholder="shortText"> <br>
-    <input type="text" name="text" placeholder="text"> <br>
-
-    Category: <select name="category.id"><br>
-    <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}">
-    </option>
-</select><br>
-    <input type="file" name="picture"><br>
-
-
-    <input type="submit" value="Add"> <br>
-</form>
 
 </body>
 </html>
+<input type="text" name="text" placeholder="text"> <br>
+
+Category: <select name="category.id"><br>
+    <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}">
+    </option>
+</select><br>
+<input type="file" name="picture"><br>
+
+
+<input type="submit" value="Add"> <br>
+</form>

@@ -70,7 +70,7 @@ public class PostController {
 
     @GetMapping("/getPostsByCategory")
     public String getPostsByCategory(ModelMap map, @RequestParam("ids") int ids){
-        map.addAttribute("posts", postRepositroy.getPostsByCategoryId(ids));
+        map.addAttribute("posts", postRepositroy.findAllByCategoryId(ids));
         return "postsByCategory";
     }
 
